@@ -85,12 +85,12 @@ WSGI_APPLICATION = 'address_site.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+
     }
 }
-
-
+#the postgres url from heroku changes daily
+DATABASES['default'] = dj_database_url.config(default='postgres://gxdutsutqbwszb:e977bb5a09298494ae6f2c50d65a8e732112c49bad168bb6b7646145380b0179@ec2-3-210-255-177.compute-1.amazonaws.com:5432/de4ecu1o7m7scs')
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
 
